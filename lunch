@@ -7,9 +7,10 @@ URL = 1
 with open("south_congress.lunch", "r") as f:
     places = []
     for place in f:
-        parse = place.strip('[').strip(']').strip('\n').split('=')
-
+        parse = place.replace('[', '').replace(']', '').strip('\n').split('=')
         places.append((parse[NAME], parse[URL]))
     f.close()
 
-print(places[randint(0, len(places) - 1)][NAME])
+location = places[randint(0, len(places) - 1)]
+print("Today you will eat at " + location[NAME] +
+      location[URL])
