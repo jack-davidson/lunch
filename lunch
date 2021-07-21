@@ -7,4 +7,4 @@ with open("south_congress.lunch", "r") as f:
         places.append(place.strip("\n"))
     f.close()
 
-print(places[randint(0, len(places))])
+print(places[randint(0, len(places) - 1)])
