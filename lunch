@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+from random import randint
+
+with open("south_congress.lunch", "r") as f:
+    places = []
+    for place in f:
+        places.append(place.strip("\n"))
+    f.close()
+
+print(places[randint(0, len(places))])
