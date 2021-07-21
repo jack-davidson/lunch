@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 from random import randint
 
+NAME = 0
+URL = 1
+
 with open("south_congress.lunch", "r") as f:
     places = []
     for place in f:
-        places.append(place.strip("\n"))
+        parse = place.strip('[').strip(']').strip('\n').split('=')
+
+        places.append((parse[NAME], parse[URL]))
     f.close()
 
-print(places[randint(0, len(places) - 1)])
+print(places[randint(0, len(places) - 1)][NAME])
